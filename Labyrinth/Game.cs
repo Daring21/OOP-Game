@@ -6,6 +6,8 @@ public class Game
 {
     public Player Player { get; set; }
     private GameElement[,] Field { get; set; }
+    private bool HasKey { get; set; }
+    // private Dictionary<Door, Key> DoorAndKeys { get; set; }
 
     public Game(int width, int height, Player player)
     {
@@ -35,6 +37,9 @@ public class Game
 
     public void AddElementToField(GameElement gameElement)
     {
+        // if (gameElement.GetType() == typeof(Door))
+        // {
+        // }
         Field[gameElement.Y, gameElement.X] = gameElement;
     }
 
@@ -66,6 +71,15 @@ public class Game
         if (Field[y, x].GetType() == typeof(Empty))
         {
             return true;
+        }
+        else if (Field[y, x].GetType() == typeof(Key))
+        {
+            HasKey = true;
+            return true;
+        }
+        else if (Field[y, x].GetType() == typeof(Door))
+        {
+            return HasKey;
         }
 
         return false;
