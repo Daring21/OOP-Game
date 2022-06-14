@@ -23,7 +23,7 @@ public static class Helpers
     {
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Wall — '█', Player — 'o', Door — '▒', Key — '╒'");
+        Console.WriteLine("Wall — '█', Player — 'o', Door — 'A', Key — 'a', Exit — '▒'");
         Console.WriteLine("Use arrows to move!\n");
         Console.ForegroundColor = previousColor;
     }

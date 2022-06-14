@@ -4,10 +4,10 @@ namespace Labyrinth;
 
 public class Game
 {
-    public Player Player { get; set; }
-    public bool IsGameOver { get; set; } = false;
+    public Player Player { get; private set; }
+    public bool IsGameOver { get; private set; }
     private GameElement[,] Field { get; set; }
-    private List<char> PlayerKeys { get; set; } = new List<char>();
+    private List<char> PlayerKeys { get; set; } = new();
 
     public Game(int width, int height, Player player)
     {

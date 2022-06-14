@@ -7,18 +7,44 @@ namespace Labyrinth
     {
         static void Main(string[] args)
         {
-            var game = new Game(20, 10, new Player(3, 3));
+            var game = new Game(17, 7, new Player(1, 1));
             Console.CursorVisible = false;
-
-            game.AddElementToField(new Door(7, 7, 'a'));
-            game.AddElementToField(new Key(15, 5, 'a'));
-
-            game.AddElementToField(new Wall(1, 4));
-            game.AddElementToField(new Wall(2, 5));
-            game.AddElementToField(new Wall(3, 6));
-            game.AddElementToField(new Wall(4, 7));
             
-            game.AddElementToField(new Exit(5, 7));
+            game.AddElementToField(new Key(6, 1, 'a'));
+            game.AddElementToField(new Door(10, 4, 'b'));
+            game.AddElementToField(new Key(15, 5, 'b'));
+            game.AddElementToField(new Door(5, 5, 'a'));
+            
+            game.AddElementToField(new Wall(2, 1));
+            game.AddElementToField(new Wall(7, 1));
+            game.AddElementToField(new Wall(2, 2));
+            game.AddElementToField(new Wall(4, 2));
+            game.AddElementToField(new Wall(5, 2));
+            game.AddElementToField(new Wall(6, 2));
+            game.AddElementToField(new Wall(7, 2));
+            game.AddElementToField(new Wall(8, 2));
+            game.AddElementToField(new Wall(9, 2));
+            game.AddElementToField(new Wall(10, 2));
+            game.AddElementToField(new Wall(12, 2));
+            game.AddElementToField(new Wall(13, 2));
+            game.AddElementToField(new Wall(14, 2));
+            game.AddElementToField(new Wall(15, 2));
+            game.AddElementToField(new Wall(5, 3));
+            game.AddElementToField(new Wall(9,3));
+            game.AddElementToField(new Wall(12, 3));
+            game.AddElementToField(new Wall(14, 3));
+            game.AddElementToField(new Wall(1, 4));
+            game.AddElementToField(new Wall(2, 4));
+            game.AddElementToField(new Wall(3, 4));
+            game.AddElementToField(new Wall(5, 4));
+            game.AddElementToField(new Wall(7, 4));
+            game.AddElementToField(new Wall(9, 4));
+            game.AddElementToField(new Wall(11, 4));
+            game.AddElementToField(new Wall(12, 4));
+            game.AddElementToField(new Wall(14, 4));
+            game.AddElementToField(new Wall(7, 5));
+            
+            game.AddElementToField(new Exit(16, 1));
 
             Helpers.DrawGreetingMessage();
             while (Console.ReadKey().Key != ConsoleKey.Enter)
