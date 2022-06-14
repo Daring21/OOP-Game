@@ -5,8 +5,12 @@ namespace Labyrinth;
 public class Game
 {
     public Player Player { get; set; }
+
+    // public bool IsGameOver { get; set; }
     private GameElement[,] Field { get; set; }
-    private bool HasKey { get; set; }
+
+    // private bool HasKey { get; set; }
+    private List<char> PlayerKeysLetters { get; set; } = new List<char>();
     // private Dictionary<Door, Key> DoorAndKeys { get; set; }
 
     public Game(int width, int height, Player player)
@@ -30,16 +34,13 @@ public class Game
                 }
             }
         }
-        
+
         Player = player;
         AddElementToField(player);
     }
 
     public void AddElementToField(GameElement gameElement)
     {
-        // if (gameElement.GetType() == typeof(Door))
-        // {
-        // }
         Field[gameElement.Y, gameElement.X] = gameElement;
     }
 
@@ -65,7 +66,7 @@ public class Game
             Field[newY, newX] = Player;
         }
     }
-    
+
     private bool IfCellIsMovable(int x, int y)
     {
         if (Field[y, x].GetType() == typeof(Empty))
@@ -74,12 +75,14 @@ public class Game
         }
         else if (Field[y, x].GetType() == typeof(Key))
         {
-            HasKey = true;
+            var keyLetter = ((Key) Field[y, x]).Letter;
+            PlayerKeysLetters.Add(keyLetter);
             return true;
         }
         else if (Field[y, x].GetType() == typeof(Door))
         {
-            return HasKey;
+            var doorLetter = ((Door) Field[y, x]).Letter;
+            return PlayerKeysLetters.Contains(doorLetter);
         }
 
         return false;

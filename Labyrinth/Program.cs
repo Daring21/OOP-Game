@@ -10,9 +10,8 @@ namespace Labyrinth
             var game = new Game(20, 10, new Player(3, 3));
             Console.CursorVisible = false;
 
-            game.AddElementToField(new Door(7, 7));
-
-            game.AddElementToField(new Key(15, 5));
+            game.AddElementToField(new Door(7, 7, 'a'));
+            game.AddElementToField(new Key(15, 5, 'a'));
 
             game.AddElementToField(new Wall(1, 4));
             game.AddElementToField(new Wall(2, 5));
