@@ -8,6 +8,9 @@ public class Player : GameElement
 
     public override void Draw()
     {
+        var previousColor = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write("o");
+        Console.ForegroundColor = previousColor;
     }
 }

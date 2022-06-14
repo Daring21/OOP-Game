@@ -1,0 +1,12 @@
+﻿{
+  "1": {
+    "scheme": [
+      ["x", "y", "z"],
+      ["x", "y", "z"]
+    ],
+    "width": 10,
+    "height": 20,
+    "playerX": 3,
+    "playerY": 3
+  }
+}

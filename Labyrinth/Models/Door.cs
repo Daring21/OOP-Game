@@ -8,6 +8,9 @@ public class Door : GameElement
 
     public override void Draw()
     {
+        var previousColor = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("▒");
+        Console.ForegroundColor = previousColor;
     }
 }
