@@ -5,13 +5,9 @@ namespace Labyrinth;
 public class Game
 {
     public Player Player { get; set; }
-
-    // public bool IsGameOver { get; set; }
+    public bool IsGameOver { get; set; } = false;
     private GameElement[,] Field { get; set; }
-
-    // private bool HasKey { get; set; }
-    private List<char> PlayerKeysLetters { get; set; } = new List<char>();
-    // private Dictionary<Door, Key> DoorAndKeys { get; set; }
+    private List<char> PlayerKeys { get; set; } = new List<char>();
 
     public Game(int width, int height, Player player)
     {
@@ -76,13 +72,18 @@ public class Game
         else if (Field[y, x].GetType() == typeof(Key))
         {
             var keyLetter = ((Key) Field[y, x]).Letter;
-            PlayerKeysLetters.Add(keyLetter);
+            PlayerKeys.Add(keyLetter);
             return true;
         }
         else if (Field[y, x].GetType() == typeof(Door))
         {
             var doorLetter = ((Door) Field[y, x]).Letter;
-            return PlayerKeysLetters.Contains(doorLetter);
+            return PlayerKeys.Contains(doorLetter);
+        }
+        else if (Field[y, x].GetType() == typeof(Exit))
+        {
+            IsGameOver = true;
+            return true;
         }
 
         return false;

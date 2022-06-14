@@ -17,6 +17,8 @@ namespace Labyrinth
             game.AddElementToField(new Wall(2, 5));
             game.AddElementToField(new Wall(3, 6));
             game.AddElementToField(new Wall(4, 7));
+            
+            game.AddElementToField(new Exit(5, 7));
 
             Helpers.DrawGreetingMessage();
             while (Console.ReadKey().Key != ConsoleKey.Enter)
@@ -45,12 +47,22 @@ namespace Labyrinth
                         break;
                 }
 
+                if (game.IsGameOver)
+                {
+                    break;
+                }
+                
                 Console.Clear();
                 Console.CursorVisible = false;
                 Helpers.DrawSymbolsOnTheMap();
                 game.DrawField();
                 currentKey = Console.ReadKey();
             }
+            
+            Console.Clear();
+            Helpers.PlayAchieveSound();
+            Helpers.DrawWonMessage();
+            Console.ReadLine();
         }
     }
 }

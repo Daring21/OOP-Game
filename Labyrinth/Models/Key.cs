@@ -13,7 +13,6 @@ public class Key : GameElement
     {
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Green;
-        // Console.Write("╒");
         Console.Write(Letter);
         Console.ForegroundColor = previousColor;
     }

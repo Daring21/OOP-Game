@@ -48,12 +48,12 @@ public static class Helpers
         Console.ForegroundColor = previousColor;
     }
 
-    // public static void PlayAchieveSound()
-    // {
-    //     var soundLocation = Path.Combine(Directory.GetCurrentDirectory(), @"../../../Assets/Sounds/achieve.wav");
-    //     using var player = new SoundPlayer(soundLocation);
-    //     player.Play();
-    // }
+    public static void PlayAchieveSound()
+    {
+        var soundLocation = Path.Combine(Directory.GetCurrentDirectory(), @"../../../Assets/Sounds/achieve.wav");
+        using var player = new SoundPlayer(soundLocation);
+        player.Play();
+    }
 
     public static void PlayBackgroundSound()
     {
