@@ -1,4 +1,5 @@
 ﻿using System;
+using Labyrinth.Helpers;
 using Labyrinth.Models;
 
 namespace Labyrinth
@@ -7,6 +8,42 @@ namespace Labyrinth
     {
         static void Main(string[] args)
         {
+            var allLevels = FileHelper.GetAllLevels(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Levels/levels.json"));
+            foreach (var level in allLevels.Levels)
+            {
+                var currentGame = new Game(level.Width, level.Height, new Player(level.PlayerX, level.PlayerY));
+
+                for (var y = 0; y < level.Scheme.Count; y++)
+                {
+                    for (var x = 0; x < level.Scheme[y].Count; x++)
+                    {
+                        var symbol = level.Scheme[y][x];
+                        if (char.IsLetter(symbol))
+                        {
+                            if (char.IsUpper(symbol))
+                            {
+                                currentGame.AddElementToField(new Door(x + 1, y + 1, char.ToLower(symbol)));
+                            }
+                            else
+                            {
+                                currentGame.AddElementToField(new Key(x + 1, y + 1, char.ToLower(symbol)));
+                            }
+                        }
+                        else if (symbol == '█')
+                        {
+                            currentGame.AddElementToField(new Wall(x + 1, y + 1));
+                        }
+                        else if (symbol == '▒')
+                        {
+                            currentGame.AddElementToField(new Exit(x + 1, y + 1));
+                        }
+                        Console.Write(level.Scheme[y][x]);
+                    }
+                    Console.WriteLine();
+                }
+            }
+            
+            
             var game = new Game(17, 7, new Player(1, 1));
             Console.CursorVisible = false;
             
@@ -46,17 +83,17 @@ namespace Labyrinth
             
             game.AddElementToField(new Exit(16, 1));
 
-            Helpers.DrawGreetingMessage();
+            DrawHelper.DrawGreetingMessage();
             while (Console.ReadKey().Key != ConsoleKey.Enter)
             {
                 Console.Clear();
-                Helpers.DrawGreetingMessage();
+                DrawHelper.DrawGreetingMessage();
             }
             
-            Helpers.PlayBackgroundSound();
-            var currentKey = new ConsoleKeyInfo();
+            SoundHelper.PlayBackgroundSound();
             while (true)
             {
+                var currentKey = Console.ReadKey();
                 switch (currentKey.Key)
                 {
                     case ConsoleKey.UpArrow:
@@ -80,14 +117,13 @@ namespace Labyrinth
                 
                 Console.Clear();
                 Console.CursorVisible = false;
-                Helpers.DrawSymbolsOnTheMap();
+                DrawHelper.DrawSymbolsOnTheMap();
                 game.DrawField();
-                currentKey = Console.ReadKey();
             }
             
             Console.Clear();
-            Helpers.PlayAchieveSound();
-            Helpers.DrawWonMessage();
+            SoundHelper.PlayAchieveSound();
+            DrawHelper.DrawWonMessage();
             Console.ReadLine();
         }
     }

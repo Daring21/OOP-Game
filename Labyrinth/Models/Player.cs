@@ -10,7 +10,7 @@ public class Player : GameElement
     {
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.Write("o");
+        Console.Write("¤");
         Console.ForegroundColor = previousColor;
     }
 }

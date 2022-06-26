@@ -58,7 +58,8 @@ public class Game
         if (IfCellIsMovable(newX, newY))
         {
             Field[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
-            Player = new Player(newX, newY);
+            Player.X = newX;
+            Player.Y = newY;
             Field[newY, newX] = Player;
         }
     }
@@ -69,18 +70,21 @@ public class Game
         {
             return true;
         }
-        else if (Field[y, x].GetType() == typeof(Key))
+        
+        if (Field[y, x].GetType() == typeof(Key))
         {
             var keyLetter = ((Key) Field[y, x]).Letter;
             PlayerKeys.Add(keyLetter);
             return true;
         }
-        else if (Field[y, x].GetType() == typeof(Door))
+        
+        if (Field[y, x].GetType() == typeof(Door))
         {
             var doorLetter = ((Door) Field[y, x]).Letter;
             return PlayerKeys.Contains(doorLetter);
         }
-        else if (Field[y, x].GetType() == typeof(Exit))
+        
+        if (Field[y, x].GetType() == typeof(Exit))
         {
             IsGameOver = true;
             return true;
