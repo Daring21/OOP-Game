@@ -1,8 +1,8 @@
-﻿namespace Labyrinth.Models;
+﻿namespace ConsoleApp.Models;
 
 public class JsonLevel
 {
-    public List<List<char>> Scheme { get; set; }
+    public List<List<string>> Scheme { get; set; } // char
     public int Width { get; set; }
     public int Height { get; set; }
     public int PlayerX { get; set; }

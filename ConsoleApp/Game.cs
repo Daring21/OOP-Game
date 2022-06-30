@@ -1,12 +1,17 @@
-﻿using Labyrinth.Models;
+﻿using ConsoleApp.Models;
 
-namespace Labyrinth;
+namespace ConsoleApp;
 
 public class Game
 {
     public Player Player { get; private set; }
     public bool IsGameOver { get; private set; }
     private GameElement[,] Field { get; set; }
+    private GameElement this[int i, int j]
+    {
+        get => Field[i, j];
+        set => Field[i, j] = value;
+    }
     private List<char> PlayerKeys { get; set; } = new();
 
     public Game(int width, int height, Player player)
@@ -18,15 +23,15 @@ public class Game
             {
                 if (y == 0 || y == height - 1)
                 {
-                    Field[y, x] = new Wall(y, x);
+                    this[y, x] = new Wall(y, x);
                 }
                 else if ((x == 0 || x == width - 1))
                 {
-                    Field[y, x] = new Wall(y, x);
+                    this[y, x] = new Wall(y, x);
                 }
                 else
                 {
-                    Field[y, x] = new Empty(y, x);
+                    this[y, x] = new Empty(y, x);
                 }
             }
         }
@@ -37,7 +42,7 @@ public class Game
 
     public void AddElementToField(GameElement gameElement)
     {
-        Field[gameElement.Y, gameElement.X] = gameElement;
+        this[gameElement.Y, gameElement.X] = gameElement;
     }
 
     public void DrawField()
@@ -46,7 +51,7 @@ public class Game
         {
             for (var x = 0; x < Field.GetLength(1); x++)
             {
-                Field[y, x].Draw();
+                this[y, x].Draw();
             }
 
             Console.WriteLine();
@@ -57,34 +62,40 @@ public class Game
     {
         if (IfCellIsMovable(newX, newY))
         {
-            Field[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
+            this[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
+            Console.SetCursorPosition(Player.X, Player.Y);
+            this[Player.Y, Player.X].Draw();
+            
             Player.X = newX;
             Player.Y = newY;
-            Field[newY, newX] = Player;
+            this[newY, newX] = Player;
+            Console.SetCursorPosition(newX, newY);
+            this[newY, newX].Draw();
         }
+        Console.SetCursorPosition(0, Field.GetLength(0) + 2);
     }
 
     private bool IfCellIsMovable(int x, int y)
     {
-        if (Field[y, x].GetType() == typeof(Empty))
+        if (this[y, x].GetType() == typeof(Empty))
         {
             return true;
         }
         
-        if (Field[y, x].GetType() == typeof(Key))
+        if (this[y, x].GetType() == typeof(Key))
         {
-            var keyLetter = ((Key) Field[y, x]).Letter;
+            var keyLetter = ((Key) this[y, x]).Letter;
             PlayerKeys.Add(keyLetter);
             return true;
         }
         
-        if (Field[y, x].GetType() == typeof(Door))
+        if (this[y, x].GetType() == typeof(Door))
         {
-            var doorLetter = ((Door) Field[y, x]).Letter;
+            var doorLetter = ((Door) this[y, x]).Letter;
             return PlayerKeys.Contains(doorLetter);
         }
         
-        if (Field[y, x].GetType() == typeof(Exit))
+        if (this[y, x].GetType() == typeof(Exit))
         {
             IsGameOver = true;
             return true;

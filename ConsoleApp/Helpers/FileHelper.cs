@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using Labyrinth.Models;
+using ConsoleApp.Models;
 using Newtonsoft.Json;
 
-namespace Labyrinth.Helpers;
+namespace ConsoleApp.Helpers;
 
 public static class FileHelper
 {

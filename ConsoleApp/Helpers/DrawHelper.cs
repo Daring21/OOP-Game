@@ -1,4 +1,4 @@
-﻿namespace Labyrinth.Helpers;
+﻿namespace ConsoleApp.Helpers;
 
 public static class DrawHelper
 {

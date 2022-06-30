@@ -1,4 +1,4 @@
-﻿namespace Labyrinth.Models;
+﻿namespace ConsoleApp.Models;
 
 public class Exit : GameElement
 {

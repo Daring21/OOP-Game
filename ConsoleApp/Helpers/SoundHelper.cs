@@ -1,6 +1,6 @@
 ﻿using System.Media;
 
-namespace Labyrinth.Helpers;
+namespace ConsoleApp.Helpers;
 
 public static class SoundHelper
 {

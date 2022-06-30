@@ -1,10 +1,10 @@
-﻿namespace Labyrinth.Models;
+﻿namespace ConsoleApp.Models;
 
-public class Key : GameElement
+public class Door : GameElement
 {
     public char Letter { get; set; }
-
-    public Key(int x, int y, char letter) : base(x, y)
+    
+    public Door(int x, int y, char letter) : base(x, y)
     {
         Letter = char.ToLower(letter);
     }
@@ -12,8 +12,8 @@ public class Key : GameElement
     public override void Draw()
     {
         var previousColor = Console.ForegroundColor;
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write(Letter);
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(char.ToUpper(Letter));
         Console.ForegroundColor = previousColor;
     }
 }
