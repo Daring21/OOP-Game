@@ -1,6 +1,6 @@
 ﻿using System.Media;
 
-namespace ConsoleApp.Helpers;
+namespace Core.Helpers;
 
 public static class SoundHelper
 {

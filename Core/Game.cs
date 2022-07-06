@@ -1,6 +1,6 @@
-﻿using ConsoleApp.Models;
+﻿using Core.Models;
 
-namespace ConsoleApp;
+namespace Core;
 
 public class Game
 {

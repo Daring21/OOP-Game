@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using ConsoleApp.Models;
+using Core.Models;
 using Newtonsoft.Json;
 
-namespace ConsoleApp.Helpers;
+namespace Core.Helpers;
 
 public static class FileHelper
 {

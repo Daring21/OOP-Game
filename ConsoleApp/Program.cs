@@ -1,4 +1,5 @@
-﻿using ConsoleApp.Helpers;
+﻿using Core;
+using Core.Helpers;
 
 namespace ConsoleApp
 {

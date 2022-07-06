@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp.Models;
+﻿namespace Core.Models;
 
 public abstract class GameElement
 {

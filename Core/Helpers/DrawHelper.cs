@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp.Helpers;
+﻿namespace Core.Helpers;
 
 public static class DrawHelper
 {

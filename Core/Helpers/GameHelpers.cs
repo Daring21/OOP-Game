@@ -1,7 +1,6 @@
-﻿using ConsoleApp.Models;
-using ConsoleApp;
+﻿using Core.Models;
 
-namespace ConsoleApp.Helpers;
+namespace Core.Helpers;
 
 public static class GameHelpers
 {
