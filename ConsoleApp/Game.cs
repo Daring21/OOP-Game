@@ -4,15 +4,29 @@ namespace ConsoleApp;
 
 public class Game
 {
-    public Player Player { get; private set; }
     public bool IsGameOver { get; private set; }
-    private GameElement[,] Field { get; set; }
+    public enum Directions
+    {
+        Top,
+        Left,
+        Bottom,
+        Right
+    }
+    private GameElement[,] Field { get; }
     private GameElement this[int i, int j]
     {
         get => Field[i, j];
         set => Field[i, j] = value;
     }
-    private List<char> PlayerKeys { get; set; } = new();
+    private Player Player { get; }
+    private List<char> PlayerKeys { get; } = new();
+    private Dictionary<Directions, (int, int)> Deltas { get; } = new()
+    {
+        {Directions.Top, (0, -1)},
+        {Directions.Right, (1, 0)},
+        {Directions.Bottom, (0, 1)},
+        {Directions.Left, (-1, 0)}
+    };
 
     public Game(int width, int height, Player player)
     {
@@ -23,15 +37,15 @@ public class Game
             {
                 if (y == 0 || y == height - 1)
                 {
-                    this[y, x] = new Wall(y, x);
+                    this[y, x] = new Wall(x, y);
                 }
                 else if ((x == 0 || x == width - 1))
                 {
-                    this[y, x] = new Wall(y, x);
+                    this[y, x] = new Wall(x, y);
                 }
                 else
                 {
-                    this[y, x] = new Empty(y, x);
+                    this[y, x] = new Empty(x, y);
                 }
             }
         }
@@ -52,50 +66,48 @@ public class Game
             for (var x = 0; x < Field.GetLength(1); x++)
             {
                 this[y, x].Draw();
+                Thread.Sleep(15);
             }
-
-            Console.WriteLine();
         }
     }
 
-    public void MovePlayer(int newX, int newY)
+    public void MovePlayer(Directions direction)
     {
+        var (newX, newY) = Deltas[direction];
+        newX = Player.X + newX;
+        newY = Player.Y + newY;
         if (IfCellIsMovable(newX, newY))
         {
             this[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
-            Console.SetCursorPosition(Player.X, Player.Y);
             this[Player.Y, Player.X].Draw();
-            
             Player.X = newX;
             Player.Y = newY;
             this[newY, newX] = Player;
-            Console.SetCursorPosition(newX, newY);
             this[newY, newX].Draw();
         }
-        Console.SetCursorPosition(0, Field.GetLength(0) + 2);
     }
 
     private bool IfCellIsMovable(int x, int y)
     {
-        if (this[y, x].GetType() == typeof(Empty))
+        if (this[y, x] is Empty)
         {
             return true;
         }
         
-        if (this[y, x].GetType() == typeof(Key))
+        if (this[y, x] is Key)
         {
             var keyLetter = ((Key) this[y, x]).Letter;
             PlayerKeys.Add(keyLetter);
             return true;
         }
         
-        if (this[y, x].GetType() == typeof(Door))
+        if (this[y, x] is Door)
         {
             var doorLetter = ((Door) this[y, x]).Letter;
             return PlayerKeys.Contains(doorLetter);
         }
         
-        if (this[y, x].GetType() == typeof(Exit))
+        if (this[y, x] is Exit)
         {
             IsGameOver = true;
             return true;

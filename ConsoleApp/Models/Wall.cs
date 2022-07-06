@@ -8,6 +8,7 @@ public class Wall : GameElement
 
     public override void Draw()
     {
+        Console.SetCursorPosition(X, Y);
         Console.Write("█");
     }
 }

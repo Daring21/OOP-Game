@@ -42,9 +42,7 @@ public static class GameHelpers
                     {
                         currentGame.AddElementToField(new Exit(x + 1, y + 1));
                     }
-                    Console.Write(level.Scheme[y][x]);
                 }
-                Console.WriteLine();
             }
             
             games.Add(currentGame);

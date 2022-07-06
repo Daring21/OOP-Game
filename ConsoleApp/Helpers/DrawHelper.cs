@@ -6,7 +6,7 @@ public static class DrawHelper
     {
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Wall — '█', Player — '¤', Door — 'A', Key — 'a', Exit — '▒'");
+        Console.WriteLine("\nWall — '█', Player — '¤', Door — 'A', Key — 'a', Exit — '▒'");
         Console.WriteLine("Use arrows to move!\n");
         Console.ForegroundColor = previousColor;
     }

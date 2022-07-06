@@ -10,6 +10,7 @@ public class Exit : GameElement
     {
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.SetCursorPosition(X, Y);
         Console.Write("▒");
         Console.ForegroundColor = previousColor;
     }

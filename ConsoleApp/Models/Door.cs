@@ -13,6 +13,7 @@ public class Door : GameElement
     {
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.Red;
+        Console.SetCursorPosition(X, Y);
         Console.Write(char.ToUpper(Letter));
         Console.ForegroundColor = previousColor;
     }

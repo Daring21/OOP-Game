@@ -17,7 +17,6 @@ namespace ConsoleApp
 
             var levels = FileHelper.GetAllLevels("Assets/Levels/levels.json");
             var games = GameHelpers.CreateGamesFromJsonLevels(levels);
-
             foreach (var game in games)
             {
                 Console.Clear();
@@ -26,26 +25,22 @@ namespace ConsoleApp
                 do
                 {
                     var currentKey = Console.ReadKey();
+                    Console.CursorVisible = false;
                     switch (currentKey.Key)
                     {
                         case ConsoleKey.UpArrow:
-                            game.MovePlayer(game.Player.X, game.Player.Y - 1);
+                            game.MovePlayer(Game.Directions.Top);
                             break;
                         case ConsoleKey.DownArrow:
-                            game.MovePlayer(game.Player.X, game.Player.Y + 1);
+                            game.MovePlayer(Game.Directions.Bottom);
                             break;
                         case ConsoleKey.LeftArrow:
-                            game.MovePlayer(game.Player.X - 1, game.Player.Y);
+                            game.MovePlayer(Game.Directions.Left);
                             break;
                         case ConsoleKey.RightArrow:
-                            game.MovePlayer(game.Player.X + 1, game.Player.Y);
+                            game.MovePlayer(Game.Directions.Right);
                             break;
                     }
-                    
-                    // Console.Clear();
-                    Console.CursorVisible = false;
-                    // DrawHelper.DrawSymbolsOnTheMap();
-                    // game.DrawField();
                 } while (!game.IsGameOver);
             }
             
