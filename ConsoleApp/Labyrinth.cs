@@ -1,5 +1,7 @@
 ﻿using Core;
 using Core.Helpers;
+using Core.Models;
+using ConsoleApp.Helpers;
 
 namespace ConsoleApp;
 
@@ -14,13 +16,14 @@ public class Labyrinth
             Console.Clear();
             DrawHelper.DrawGreetingMessage();
         }
-        // SoundHelper.PlayBackgroundSound();
+        SoundHelper.PlayBackgroundSound();
 
         var levels = FileHelper.GetAllLevels("Assets/Levels/levels.json");
         var games = GameHelpers.CreateGamesFromJsonLevels(levels);
         foreach (var game in games)
         {
             Console.Clear();
+            GameElement.DrawEvent += DrawHelper.DrawElement;
             game.DrawField();
             DrawHelper.DrawSymbolsOnTheMap();
             do

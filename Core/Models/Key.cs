@@ -8,13 +8,4 @@ public class Key : GameElement
     {
         Letter = char.ToLower(letter);
     }
-
-    public override void Draw()
-    {
-        var previousColor = Console.ForegroundColor;
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.SetCursorPosition(X, Y);
-        Console.Write(Letter);
-        Console.ForegroundColor = previousColor;
-    }
 }

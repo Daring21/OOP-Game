@@ -8,13 +8,4 @@ public class Door : GameElement
     {
         Letter = char.ToLower(letter);
     }
-
-    public override void Draw()
-    {
-        var previousColor = Console.ForegroundColor;
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.SetCursorPosition(X, Y);
-        Console.Write(char.ToUpper(Letter));
-        Console.ForegroundColor = previousColor;
-    }
 }

@@ -112,6 +112,11 @@ public class Game
             IsGameOver = true;
             return true;
         }
+        
+        if (this[y, x] is Wall)
+        {
+            return false;
+        }
 
         return false;
     }
