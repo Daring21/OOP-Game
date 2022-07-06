@@ -1,4 +1,4 @@
-# 🗂 Labyrinth
+# 🎮 Labyrinth
 
 Simple console OOP game written on _**C#**_
 
@@ -6,9 +6,10 @@ Simple console OOP game written on _**C#**_
 
 This game was made **without** using game engine.
 
-It is also possible to enter **multiple** flags to command.
+**Codebase is separated from the console**, so it's really easy to change the presentation layer.
 
-File manager supports **absolute** and **relative** paths!
+Use **arrows** to move.
+
 
 ## 📸 Example
 
