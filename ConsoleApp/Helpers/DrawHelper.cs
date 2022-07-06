@@ -14,7 +14,7 @@ public static class DrawHelper
 
         var symbol = element switch
         {
-            Door => ((Door) element).Letter.ToString(),
+            Door door => door.Letter.ToString(),
             Empty => " ",
             Exit => "▒",
             Key key => key.Letter.ToString(),
@@ -53,33 +53,19 @@ public static class DrawHelper
             Console.SetCursorPosition(0, 10);
         }
     }
-    
-    public static void DrawSymbolsOnTheMap()
+
+    public static void DrawMessageFromFile(string path, ConsoleColor color)
     {
         var previousColor = Console.ForegroundColor;
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("\nWall — '█', Player — '¤', Door — 'A', Key — 'a', Exit — '▒'");
-        Console.WriteLine("Use arrows to move!\n");
+        Console.ForegroundColor = color;
+        Console.WriteLine(FileHelper.ReadTxtFile(Path.Combine(Directory.GetCurrentDirectory(), path)));
         Console.ForegroundColor = previousColor;
     }
-
+    
     public static void DrawGreetingMessage()
     {
-        var previousColor = Console.ForegroundColor;
-        Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine(FileHelper.ReadTxtFile(Path.Combine(Directory.GetCurrentDirectory(),
-            @"Assets/Messages/greeting.txt")));
+        DrawMessageFromFile(@"Assets/Messages/greeting.txt", ConsoleColor.Blue);
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("\nPress \"ENTER\" to start!");
-        Console.ForegroundColor = previousColor;
-    }
-
-    public static void DrawWonMessage()
-    {
-        var previousColor = Console.ForegroundColor;
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine(
-            FileHelper.ReadTxtFile(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Messages/won.txt")));
-        Console.ForegroundColor = previousColor;
     }
 }

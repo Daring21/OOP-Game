@@ -1,0 +1,3 @@
+﻿
+Wall — '█', Player — '¤', Door — 'A', Key — 'a', Exit — '▒'
+Use arrows to move!

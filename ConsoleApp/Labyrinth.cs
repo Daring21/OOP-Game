@@ -25,7 +25,7 @@ public class Labyrinth
             Console.Clear();
             GameElement.DrawEvent += DrawHelper.DrawElement;
             game.DrawField();
-            DrawHelper.DrawSymbolsOnTheMap();
+            DrawHelper.DrawMessageFromFile(@"Assets/Messages/symbols.txt", ConsoleColor.Cyan);
             do
             {
                 var currentKey = Console.ReadKey();
@@ -50,7 +50,7 @@ public class Labyrinth
             
         Console.Clear();
         SoundHelper.PlayAchieveSound();
-        DrawHelper.DrawWonMessage();
+        DrawHelper.DrawMessageFromFile(@"Assets/Messages/won.txt", ConsoleColor.Green);
         Console.ReadLine();
     }
 }
