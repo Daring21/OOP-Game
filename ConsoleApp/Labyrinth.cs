@@ -7,11 +7,19 @@ namespace ConsoleApp;
 
 public class Labyrinth
 {
+    private readonly Dictionary<ConsoleKey, Game.Directions> KeyDirectionsMap = new ()
+    {
+        {ConsoleKey.UpArrow, Game.Directions.Top},
+        {ConsoleKey.DownArrow, Game.Directions.Bottom},
+        {ConsoleKey.LeftArrow, Game.Directions.Left},
+        {ConsoleKey.RightArrow, Game.Directions.Right}
+    };
+
     public void StartGame()
     {
         Console.CursorVisible = false;
         DrawHelper.DrawGreetingMessage();
-        while (Console.ReadKey().Key != ConsoleKey.Enter)
+        while (Console.ReadKey(true).Key != ConsoleKey.Enter)
         {
             Console.Clear();
             DrawHelper.DrawGreetingMessage();
@@ -28,24 +36,10 @@ public class Labyrinth
             DrawHelper.DrawMessageFromFile(@"Assets/Messages/symbols.txt", ConsoleColor.Cyan);
             do
             {
-                var currentKey = Console.ReadKey();
+                var currentKey = Console.ReadKey(true);
                 Console.CursorVisible = false;
-                switch (currentKey.Key)
-                {
-                    case ConsoleKey.UpArrow:
-                        game.MovePlayer(Game.Directions.Top);
-                        break;
-                    case ConsoleKey.DownArrow:
-                        game.MovePlayer(Game.Directions.Bottom);
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        game.MovePlayer(Game.Directions.Left);
-                        break;
-                    case ConsoleKey.RightArrow:
-                        game.MovePlayer(Game.Directions.Right);
-                        break;
-                }
-            } while (!game.IsGameOver);
+                game.MovePlayer(KeyDirectionsMap[currentKey.Key]);
+            } while (!game.GameInfo.IsGameOver);
         }
             
         Console.Clear();

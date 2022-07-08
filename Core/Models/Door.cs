@@ -8,4 +8,17 @@ public class Door : GameElement
     {
         Letter = char.ToLower(letter);
     }
+    public Door(Coords coords, char letter) : base(coords)
+    {
+        Letter = char.ToLower(letter);
+    }
+
+    public override bool IfCellIsMovable(GameInfo gameInfo)
+    {
+        return gameInfo.PlayerKeys.Contains(Letter);
+    }
+
+    public override void DoFunctionality(GameInfo gameInfo)
+    {
+    }
 }

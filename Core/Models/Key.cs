@@ -8,4 +8,18 @@ public class Key : GameElement
     {
         Letter = char.ToLower(letter);
     }
+    public Key(Coords coords, char letter) : base(coords)
+    {
+        Letter = char.ToLower(letter);
+    }
+
+    public override bool IfCellIsMovable(GameInfo gameInfo)
+    {
+        return true;
+    }
+
+    public override void DoFunctionality(GameInfo gameInfo)
+    {
+        gameInfo.PlayerKeys.Add(Letter);
+    }
 }

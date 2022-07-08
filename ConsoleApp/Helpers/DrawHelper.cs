@@ -12,27 +12,17 @@ public static class DrawHelper
             return;
         }
 
-        var symbol = element switch
+        Dictionary<Type, (string, ConsoleColor)> elementSymbolDictionary = new()
         {
-            Door door => door.Letter.ToString(),
-            Empty => " ",
-            Exit => "▒",
-            Key key => key.Letter.ToString(),
-            Player => "¤",
-            Wall => "█",
-            _ => " "
+            {typeof(Door), ((element as Door)?.Letter.ToString(), ConsoleColor.Red)!},
+            {typeof(Empty), (" ", ConsoleColor.White)},
+            {typeof(Exit), ("▒", ConsoleColor.Magenta)},
+            {typeof(Key), ((element as Key)?.Letter.ToString(), ConsoleColor.Green)!},
+            {typeof(Player), ("¤", ConsoleColor.Blue)},
+            {typeof(Wall), ("█", ConsoleColor.White)},
         };
-
-        var color = element switch
-        {
-            Door => ConsoleColor.Red,
-            Empty => ConsoleColor.White,
-            Exit => ConsoleColor.Magenta,
-            Key => ConsoleColor.Green,
-            Player => ConsoleColor.Blue,
-            Wall => ConsoleColor.White,
-            _ => ConsoleColor.White
-        };
+        
+        var (symbol, color) = elementSymbolDictionary[element.GetType()];
         
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = color;
@@ -48,10 +38,6 @@ public static class DrawHelper
         }
         
         Console.ForegroundColor = previousColor;
-        if (element is Player)
-        {
-            Console.SetCursorPosition(0, 10);
-        }
     }
 
     public static void DrawMessageFromFile(string path, ConsoleColor color)
