@@ -25,7 +25,7 @@ public static class GameHelpers
         {
             for (var x = 0; x < level.Scheme[y].Count; x++)
             {
-                var coords = new Coords(x, y);
+                var coords = new Coords(x + 1, y + 1);
                 var str = level.Scheme[y][x];
                 game.AddElementToField(CreateElementBySymbol(str, coords));
             }
@@ -43,28 +43,28 @@ public static class GameHelpers
             {
                 if (char.IsUpper(symbol))
                 {
-                    return new Door(coords.X + 1, coords.Y + 1, char.ToLower(symbol));
+                    return new Door(coords, char.ToLower(symbol));
                 }
                 else
                 {
-                    return new Key(coords.X + 1, coords.Y + 1, char.ToLower(symbol));
+                    return new Key(coords, char.ToLower(symbol));
                 }
             }
         }
         if (str == "█")
         {
-            return new Wall(coords.X + 1, coords.Y + 1);
+            return new Wall(coords);
         }
         if (str == "▒")
         {
-            return new Exit(coords.X + 1, coords.Y + 1);
+            return new Exit(coords);
         }
         if (str == "¤")
         {
-            return new Player(coords.X + 1, coords.Y + 1);
+            return new Player(coords);
         }
 
-        return new Empty(coords.X + 1, coords.Y + 1);
+        return new Empty(coords);
     }
 }
 
@@ -85,10 +85,6 @@ public static class GameExtension
                 else if ((x == 0 || x == width  - 1))
                 {
                     game[y, x] = new Wall(x, y);
-                }
-                else
-                {
-                    game[y, x] = new Empty(x, y);
                 }
             }
         }
