@@ -60,26 +60,14 @@ public class Game
     {
         var (deltaX, deltaY) = Deltas[direction];
         var newCords = new Coords(Player.X + deltaX, Player.Y + deltaY);
-        // var newX = Player.X + deltaX;
-        // var newY = Player.Y + deltaY;
 
-        var IsMovable = this[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
+        var isMovable = this[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
         this[newCords.Y, newCords.X].DoFunctionality(GameInfo);
-        if (IsMovable)
+        if (isMovable)
         {
             this[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
             (Player.X, Player.Y) = (newCords.X, newCords.Y);
             this[newCords.Y, newCords.X] = Player;
         }
-
-        // if (IfCellIsMovable(newX, newY))
-        // {
-        //     this[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
-        //     this[Player.Y, Player.X].Draw();
-        //     Player.X = newX;
-        //     Player.Y = newY;
-        //     this[newY, newX] = Player;
-        //     this[newY, newX].Draw();
-        // }
     }
 }
