@@ -4,6 +4,13 @@ namespace Core.Helpers;
 
 public static class GameHelpers
 {
+    private static Dictionary<string, Type> symbolElements = new()
+    {
+        {"█", typeof(Wall)},
+        {"▒", typeof(Exit)},
+        {"¤", typeof(Player)},
+    };
+
     public static List<Game> CreateGamesFromJsonLevels(JsonLevels levels)
     {
         var games = new List<Game>();
@@ -51,18 +58,23 @@ public static class GameHelpers
                 }
             }
         }
-        if (str == "█")
+
+        if (symbolElements.ContainsKey(str))
         {
-            return new Wall(coords);
+            return (Activator.CreateInstance(symbolElements[str], coords) as GameElement)!;
         }
-        if (str == "▒")
-        {
-            return new Exit(coords);
-        }
-        if (str == "¤")
-        {
-            return new Player(coords);
-        }
+        // if (str == "█")
+        // {
+        //     return new Wall(coords);
+        // }
+        // if (str == "▒")
+        // {
+        //     return new Exit(coords);
+        // }
+        // if (str == "¤")
+        // {
+        //     return new Player(coords);
+        // }
 
         return new Empty(coords);
     }
