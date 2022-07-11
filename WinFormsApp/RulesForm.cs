@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace WinFormsApp
             var mainMenuForm = new MainMenuForm();
             mainMenuForm.Closed += (s, args) => this.Close();
             mainMenuForm.Show();
+        }
+
+        private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var ps = new ProcessStartInfo("https://github.com/D4RK21")
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(ps);
+        }
+
+        private void easterPictureBox_Click(object sender, EventArgs e)
+        {
+            easterPictureBox.Image = Image.FromFile("Assets/Images/easter.gif");
         }
     }
 }

@@ -58,7 +58,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="easterPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhbAKQAfcAAAAAAAEAAAsBAAQCCAsIBRMBABsBABgMABAODiMBACoFCCsaGjcYHDMPDh4dLRwZ
         Jx4eMx8fOCUcIysdIyIfLSsdLD0VJT0VKTcaJyMfNSscNCMeOSkcOzMYNB4iLB0jJx4hMx4jOxUhPSIh
@@ -4338,6 +4338,18 @@
         WWMiOmOcyaKc+WI3foUramKP+eEVmiMWpuPlkaIn5mIufqLIyeM89tig2WEsFiM+HqA+Lhw9XiMkXiCh
         AZk5EuJAgkQwJqIf8qLNMWRDekQm9hiWydkPwiM8UmRFAgCOLaMkSqSWmaMFCmQ3BgQAOw==
 </value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>🔮 Simple console OOP game written on C#
+
+🌟 This game was made without using game engine.
+
+⚙️ Codebase is separated from the console, 
+so it's really easy to change the presentation layer.
+
+🕹️ Use arrows to move  (→←↑↓)
+
+💻 Author: Mikhail Zhmaytsev  ▶</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
