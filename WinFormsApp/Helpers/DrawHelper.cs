@@ -4,9 +4,9 @@ namespace WinFormsApp.Helpers;
 
 public class DrawHelper
 {
-    private Form2 Form { get; set; }
+    private GameForm Form { get; set; }
     
-    public DrawHelper(Form2 form)
+    public DrawHelper(GameForm form)
     {
         Form = form;
     }

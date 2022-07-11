@@ -7,17 +7,25 @@ namespace WinFormsApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void startGameButton_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            form2.Show();
-            this.Visible = false;
+            this.Hide();
+            var gameForm = new GameForm();
+            gameForm.Closed += (s, args) => this.Close();
+            gameForm.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void showRulesButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to leave?", "Confirmation",
-                MessageBoxButtons.OKCancel);
+            this.Hide();
+            var rulesForm = new RulesForm();
+            rulesForm.Closed += (s, args) => this.Close();
+            rulesForm.Show();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to leave?", "Confirmation", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
                 Application.Exit();
