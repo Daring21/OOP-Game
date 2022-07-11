@@ -46,6 +46,14 @@ public class Labyrinth
 
         if (CurrentLevel.Game.GameInfo.IsGameOver)
         {
+            if (LevelIndex == 1)
+            {
+                Form.Hide();
+                var wonForm = new WonForm(LevelIndex);
+                wonForm.Closed += (s, args) => Form.Close();
+                wonForm.Show();
+            }
+            
             CurrentLevel = new Level(AllGamesList[LevelIndex++], Form);
         }
     }

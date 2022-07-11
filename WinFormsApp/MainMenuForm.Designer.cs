@@ -58,6 +58,9 @@
             // startGameButton
             // 
             this.startGameButton.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.startGameButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.startGameButton.FlatAppearance.BorderSize = 2;
+            this.startGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startGameButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.startGameButton.ForeColor = System.Drawing.Color.White;
             this.startGameButton.Location = new System.Drawing.Point(390, 234);
@@ -71,12 +74,15 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.exitButton.FlatAppearance.BorderSize = 2;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.exitButton.ForeColor = System.Drawing.Color.White;
             this.exitButton.Location = new System.Drawing.Point(390, 366);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(195, 51);
-            this.exitButton.TabIndex = 2;
+            this.exitButton.TabIndex = 3;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -116,12 +122,15 @@
             // showRulesButton
             // 
             this.showRulesButton.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.showRulesButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.showRulesButton.FlatAppearance.BorderSize = 2;
+            this.showRulesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showRulesButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.showRulesButton.ForeColor = System.Drawing.Color.White;
             this.showRulesButton.Location = new System.Drawing.Point(390, 300);
             this.showRulesButton.Name = "showRulesButton";
             this.showRulesButton.Size = new System.Drawing.Size(195, 51);
-            this.showRulesButton.TabIndex = 6;
+            this.showRulesButton.TabIndex = 2;
             this.showRulesButton.Text = "Rules";
             this.showRulesButton.UseVisualStyleBackColor = false;
             this.showRulesButton.Click += new System.EventHandler(this.showRulesButton_Click);

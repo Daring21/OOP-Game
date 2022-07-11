@@ -47,6 +47,7 @@
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.backButton.ForeColor = System.Drawing.Color.White;
             this.backButton.Location = new System.Drawing.Point(27, 23);
