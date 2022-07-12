@@ -1,7 +1,5 @@
 ﻿using Core;
 using Core.Helpers;
-using Core.Models;
-using WinFormsApp.Helpers;
 
 namespace WinFormsApp.GameEngine;
 
@@ -11,7 +9,8 @@ public class Labyrinth
     private Level CurrentLevel { get; set; }
     private List<Game> AllGamesList { get; set; }
     private int LevelIndex { get; set; } = 0;
-    private readonly Dictionary<Keys, Game.Directions> KeyDirectionsMap = new ()
+
+    private readonly Dictionary<Keys, Game.Directions> _keyDirectionsMap = new()
     {
         {Keys.Up, Game.Directions.Top},
         {Keys.Down, Game.Directions.Bottom},
@@ -23,7 +22,7 @@ public class Labyrinth
     {
         Form = form;
     }
-    
+
     public void StartGame()
     {
         SoundHelper.PlayBackgroundSound();
@@ -34,25 +33,29 @@ public class Labyrinth
 
     public void KeyPressed(Keys keys)
     {
-        Form.labelCollectedKeys.Text = $"🗝 Collected Keys: {string.Join(", ", CurrentLevel.Game.GameInfo.PlayerKeys)}";
-
-        if (KeyDirectionsMap.ContainsKey(keys))
+        if (_keyDirectionsMap.ContainsKey(keys))
         {
-            CurrentLevel.Game.MovePlayer(KeyDirectionsMap[keys]);
+            CurrentLevel.Game.MovePlayer(_keyDirectionsMap[keys]);
         }
 
+        CheckForFunctionality();
+    }
+
+    private void CheckForFunctionality()
+    {
         if (CurrentLevel.Game.GameInfo.IsGameOver)
         {
             if (LevelIndex == AllGamesList.Count)
             {
                 Form.Hide();
                 var wonForm = new WonForm(LevelIndex);
-                wonForm.Closed += (s, args) => Form.Close();
                 wonForm.Show();
                 return;
             }
 
             CurrentLevel = new Level(AllGamesList[LevelIndex++], Form);
         }
+        
+        Form.labelCollectedKeys.Text = $"🗝 Collected Keys: {string.Join(", ", CurrentLevel.Game.GameInfo.PlayerKeys)}";
     }
 }

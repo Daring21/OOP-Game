@@ -5,7 +5,9 @@ namespace WinFormsApp.Helpers;
 public class DrawHelper
 {
     private GameForm Form { get; set; }
-    
+    private const int GameElementWidth = 30;
+    private const int GameElementHeight = 30;
+
     public DrawHelper(GameForm form)
     {
         Form = form;
@@ -31,24 +33,23 @@ public class DrawHelper
         var path = elementPathDictionary[element.GetType()];
         var pictureBox = new PictureBox();
         var image = Image.FromFile(path);
-        pictureBox.Width = 30;
-        pictureBox.Height = 30;
+        pictureBox.Width = GameElementWidth;
+        pictureBox.Height = GameElementHeight;
         pictureBox.Margin = Padding.Empty;
-        pictureBox.Location = new Point(element.X * 30, element.Y * 30);
+        pictureBox.Location = new Point(element.X * GameElementWidth, element.Y * GameElementHeight);
         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-        if (element is Door)
+        if (element is Door door)
         {
             using Graphics g = Graphics.FromImage(image);
-            g.DrawString((element as Door)?.Letter.ToString().ToUpper(), new Font("Organetto", 60), Brushes.Yellow, 13, 50);
+            g.DrawString(door?.Letter.ToString().ToUpper(), new Font("Organetto", 60), Brushes.Yellow, 13, 50);
         }
-        else if (element is Key)
+        else if (element is Key key)
         {
             using Graphics g = Graphics.FromImage(image);
-            g.DrawString((element as Key)?.Letter.ToString(), new Font("Organetto", 150), Brushes.Yellow, 30, 90);
+            g.DrawString(key?.Letter.ToString(), new Font("Organetto", 150), Brushes.Yellow, 30, 90);
         }
         
-        pictureBox.BringToFront();
         pictureBox.Image = image;
         Form.panelGameField.Controls.Add(pictureBox);
         pictureBox.BringToFront();

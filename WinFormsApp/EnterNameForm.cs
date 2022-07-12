@@ -21,7 +21,6 @@ namespace WinFormsApp
         {
             this.Hide();
             var gameForm = new GameForm(textBoxName.Text);
-            gameForm.Closed += (s, args) => this.Close();
             gameForm.Show();
         }
 
@@ -29,7 +28,6 @@ namespace WinFormsApp
         {
             this.Hide();
             var mainMenuForm = new MainMenuForm();
-            mainMenuForm.Closed += (s, args) => this.Close();
             mainMenuForm.Show();
         }
     }

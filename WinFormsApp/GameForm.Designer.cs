@@ -60,7 +60,7 @@
             this.labelCollectedKeys.AutoSize = true;
             this.labelCollectedKeys.Font = new System.Drawing.Font("Organetto Bold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelCollectedKeys.ForeColor = System.Drawing.Color.White;
-            this.labelCollectedKeys.Location = new System.Drawing.Point(334, 64);
+            this.labelCollectedKeys.Location = new System.Drawing.Point(315, 61);
             this.labelCollectedKeys.Name = "labelCollectedKeys";
             this.labelCollectedKeys.Size = new System.Drawing.Size(309, 38);
             this.labelCollectedKeys.TabIndex = 3;

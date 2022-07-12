@@ -22,18 +22,17 @@ namespace WinFormsApp
         {
             this.Hide();
             var mainMenuForm = new MainMenuForm();
-            mainMenuForm.Closed += (s, args) => this.Close();
             mainMenuForm.Show();
         }
 
         private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var ps = new ProcessStartInfo("https://github.com/D4RK21")
+            var processStartInfo = new ProcessStartInfo("https://github.com/D4RK21")
             {
                 UseShellExecute = true,
                 Verb = "open"
             };
-            Process.Start(ps);
+            Process.Start(processStartInfo);
         }
 
         private void easterPictureBox_Click(object sender, EventArgs e)

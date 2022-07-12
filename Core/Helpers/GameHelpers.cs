@@ -63,18 +63,6 @@ public static class GameHelpers
         {
             return (Activator.CreateInstance(symbolElements[str], coords) as GameElement)!;
         }
-        // if (str == "█")
-        // {
-        //     return new Wall(coords);
-        // }
-        // if (str == "▒")
-        // {
-        //     return new Exit(coords);
-        // }
-        // if (str == "¤")
-        // {
-        //     return new Player(coords);
-        // }
 
         return new Empty(coords);
     }

@@ -11,7 +11,6 @@ namespace WinFormsApp
         {
             this.Hide();
             var enterNameForm = new EnterNameForm();
-            enterNameForm.Closed += (s, args) => this.Close();
             enterNameForm.Show();
         }
 
@@ -19,7 +18,6 @@ namespace WinFormsApp
         {
             this.Hide();
             var rulesForm = new RulesForm();
-            rulesForm.Closed += (s, args) => this.Close();
             rulesForm.Show();
         }
 

@@ -22,7 +22,6 @@ namespace WinFormsApp
         {
             this.Hide();
             var mainMenuForm = new MainMenuForm();
-            mainMenuForm.Closed += (s, args) => this.Close();
             mainMenuForm.Show();
         }
     }

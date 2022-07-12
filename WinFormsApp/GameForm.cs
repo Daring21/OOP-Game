@@ -17,7 +17,7 @@ namespace WinFormsApp
     public partial class GameForm : Form
     {
         private Labyrinth Labyrinth { get; set; }
-        
+
         public GameForm(string name)
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace WinFormsApp
 
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to leave?", "Confirmation",
+            var result = MessageBox.Show("Are you sure you want to leave?", "Confirmation",
                 MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
