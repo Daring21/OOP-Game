@@ -38,7 +38,10 @@ public class Labyrinth
             {
                 var currentKey = Console.ReadKey(true);
                 Console.CursorVisible = false;
-                game.MovePlayer(KeyDirectionsMap[currentKey.Key]);
+                if (KeyDirectionsMap.ContainsKey(currentKey.Key))
+                {
+                    game.MovePlayer(KeyDirectionsMap[currentKey.Key]);
+                }
             } while (!game.GameInfo.IsGameOver);
         }
             

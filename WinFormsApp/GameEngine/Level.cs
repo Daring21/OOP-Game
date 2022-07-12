@@ -18,10 +18,10 @@ public class Level
 
     public void StartLevel()
     {
-        Form.panel1.Controls.Clear();
-        Form.panel1.Size = new Size(Game.Field.GetLength(1) * 30, Game.Field.GetLength(0) * 30);
-        Form.panel1.Left = (Form.panel1.Parent.Width - Form.panel1.Width) / 2;
-        Form.panel1.Top = (Form.panel1.Parent.Height - Form.panel1.Height) / 2;
+        Form.panelGameField.Controls.Clear();
+        Form.panelGameField.Size = new Size(Game.Field.GetLength(1) * 30, Game.Field.GetLength(0) * 30);
+        Form.panelGameField.Left = (Form.panelGameField.Parent.Width - Form.panelGameField.Width) / 2;
+        Form.panelGameField.Top = (Form.panelGameField.Parent.Height - Form.panelGameField.Height) / 2;
 
         var drawHelper = new DrawHelper(Form);
             

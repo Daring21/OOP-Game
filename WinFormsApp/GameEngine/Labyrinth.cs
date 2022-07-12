@@ -29,16 +29,13 @@ public class Labyrinth
         SoundHelper.PlayBackgroundSound();
         var levels = FileHelper.GetAllLevels("Assets/Levels/levels.json");
         AllGamesList = GameHelpers.CreateGamesFromJsonLevels(levels);
-        // foreach (var game in AllGamesList)
-        // {
-        //     
-        // }
-
         CurrentLevel = new Level(AllGamesList[LevelIndex++], Form);
     }
 
     public void KeyPressed(Keys keys)
     {
+        Form.labelCollectedKeys.Text = $"🗝 Collected Keys: {string.Join(", ", CurrentLevel.Game.GameInfo.PlayerKeys)}";
+
         if (KeyDirectionsMap.ContainsKey(keys))
         {
             CurrentLevel.Game.MovePlayer(KeyDirectionsMap[keys]);
@@ -46,14 +43,15 @@ public class Labyrinth
 
         if (CurrentLevel.Game.GameInfo.IsGameOver)
         {
-            if (LevelIndex == 1)
+            if (LevelIndex == AllGamesList.Count)
             {
                 Form.Hide();
                 var wonForm = new WonForm(LevelIndex);
                 wonForm.Closed += (s, args) => Form.Close();
                 wonForm.Show();
+                return;
             }
-            
+
             CurrentLevel = new Level(AllGamesList[LevelIndex++], Form);
         }
     }

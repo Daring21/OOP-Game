@@ -50,7 +50,7 @@ public class DrawHelper
         
         pictureBox.BringToFront();
         pictureBox.Image = image;
-        Form.panel1.Controls.Add(pictureBox);
+        Form.panelGameField.Controls.Add(pictureBox);
         pictureBox.BringToFront();
     }
 }

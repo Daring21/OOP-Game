@@ -18,19 +18,20 @@ namespace WinFormsApp
     {
         private Labyrinth Labyrinth { get; set; }
         
-        public GameForm()
+        public GameForm(string name)
         {
             InitializeComponent();
+            labelName.Text = $"Player: {name}";
             Labyrinth = new Labyrinth(this);
             Labyrinth.StartGame();
         }
 
-        private void Form2_KeyDown(object sender, KeyEventArgs e)
+        private void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
             Labyrinth.KeyPressed(e.KeyCode);
         }
 
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to leave?", "Confirmation",
                 MessageBoxButtons.OKCancel);

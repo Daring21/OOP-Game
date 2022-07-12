@@ -10,9 +10,9 @@ namespace WinFormsApp
         private void startGameButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var gameForm = new GameForm();
-            gameForm.Closed += (s, args) => this.Close();
-            gameForm.Show();
+            var enterNameForm = new EnterNameForm();
+            enterNameForm.Closed += (s, args) => this.Close();
+            enterNameForm.Show();
         }
 
         private void showRulesButton_Click(object sender, EventArgs e)

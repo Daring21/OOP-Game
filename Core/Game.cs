@@ -51,7 +51,7 @@ public class Game
             for (var x = 0; x < Field.GetLength(1); x++)
             {
                 this[y, x].Draw();
-                Thread.Sleep(15);
+                // Thread.Sleep(15);
             }
         }
     }
