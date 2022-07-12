@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp
+﻿using WinFormsApp.Helpers;
+
+namespace WinFormsApp
 {
     partial class WonForm
     {
@@ -82,7 +84,7 @@
             this.labelWonLevelCount.Name = "labelWonLevelCount";
             this.labelWonLevelCount.Size = new System.Drawing.Size(348, 31);
             this.labelWonLevelCount.TabIndex = 7;
-            this.labelWonLevelCount.Text = "COUNT OF PASSED LEVELS: 0";
+            this.labelWonLevelCount.Text = DefaultText.LabelWonLevelCount;
             // 
             // pictureBox1
             // 

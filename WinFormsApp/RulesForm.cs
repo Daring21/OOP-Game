@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.Helpers;
 
 namespace WinFormsApp
 {
@@ -20,9 +21,7 @@ namespace WinFormsApp
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var mainMenuForm = new MainMenuForm();
-            mainMenuForm.Show();
+            FormHelper.OpenForm(this, new MainMenuForm());
         }
 
         private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

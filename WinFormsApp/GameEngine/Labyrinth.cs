@@ -1,5 +1,6 @@
 ﻿using Core;
 using Core.Helpers;
+using WinFormsApp.Helpers;
 
 namespace WinFormsApp.GameEngine;
 
@@ -47,15 +48,13 @@ public class Labyrinth
         {
             if (LevelIndex == AllGamesList.Count)
             {
-                Form.Hide();
-                var wonForm = new WonForm(LevelIndex);
-                wonForm.Show();
+                FormHelper.OpenForm(Form, new WonForm(LevelIndex));
                 return;
             }
 
             CurrentLevel = new Level(AllGamesList[LevelIndex++], Form);
         }
-        
-        Form.labelCollectedKeys.Text = $"🗝 Collected Keys: {string.Join(", ", CurrentLevel.Game.GameInfo.PlayerKeys)}";
+
+        Form.labelCollectedKeys.Text = DefaultText.LabelCollectedKeys + string.Join(", ", CurrentLevel.Game.GameInfo.PlayerKeys);
     }
 }

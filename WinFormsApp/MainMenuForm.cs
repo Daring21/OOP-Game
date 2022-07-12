@@ -1,3 +1,5 @@
+using WinFormsApp.Helpers;
+
 namespace WinFormsApp
 {
     public partial class MainMenuForm : Form
@@ -9,16 +11,12 @@ namespace WinFormsApp
 
         private void startGameButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var enterNameForm = new EnterNameForm();
-            enterNameForm.Show();
+            FormHelper.OpenForm(this, new EnterNameForm());
         }
 
         private void showRulesButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var rulesForm = new RulesForm();
-            rulesForm.Show();
+            FormHelper.OpenForm(this, new RulesForm());
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -27,6 +25,7 @@ namespace WinFormsApp
             if (result == DialogResult.OK)
             {
                 this.Close();
+                Application.Exit();
             }
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.Helpers;
 
 namespace WinFormsApp
 {
@@ -15,14 +16,12 @@ namespace WinFormsApp
         public WonForm(int passedLevelCount)
         {
             InitializeComponent();
-            labelWonLevelCount.Text = $"COUNT OF PASSED LEVELS: {passedLevelCount}";
+            labelWonLevelCount.Text = DefaultText.LabelWonLevelCount + passedLevelCount;
         }
 
         private void backToMenuButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var mainMenuForm = new MainMenuForm();
-            mainMenuForm.Show();
+            FormHelper.OpenForm(this, new MainMenuForm());
         }
     }
 }

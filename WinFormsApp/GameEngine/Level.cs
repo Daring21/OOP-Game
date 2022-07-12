@@ -26,7 +26,7 @@ public class Level
 
     private void AdjustPanelGameField()
     {
-        Form.labelCollectedKeys.Text = "🗝 Collected Keys:";
+        Form.labelCollectedKeys.Text = DefaultText.LabelCollectedKeys;
         Form.panelGameField.Controls.Clear();
         Form.panelGameField.Size = new Size(Game.Field.GetLength(1) * 30, Game.Field.GetLength(0) * 30);
         Form.panelGameField.Left = (Form.panelGameField.Parent.Width - Form.panelGameField.Width) / 2;

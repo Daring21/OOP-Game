@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp
+﻿using WinFormsApp.Helpers;
+
+namespace WinFormsApp
 {
     partial class GameForm
     {
@@ -64,7 +66,7 @@
             this.labelCollectedKeys.Name = "labelCollectedKeys";
             this.labelCollectedKeys.Size = new System.Drawing.Size(309, 38);
             this.labelCollectedKeys.TabIndex = 3;
-            this.labelCollectedKeys.Text = "🗝 Collected Keys:";
+            this.labelCollectedKeys.Text = DefaultText.LabelCollectedKeys;
             this.labelCollectedKeys.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelName
