@@ -19,6 +19,11 @@ namespace WinFormsApp
             FormHelper.OpenForm(this, new RulesForm());
         }
 
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            FormHelper.OpenForm(this, new SettingsForm());
+        }
+
         private void exitButton_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to leave?", "Confirmation", MessageBoxButtons.OKCancel);

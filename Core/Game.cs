@@ -1,4 +1,5 @@
 ﻿using Core.Models;
+using Core.Models.GameElements;
 
 namespace Core;
 
@@ -12,16 +13,7 @@ public class Game
         Right
     }
     public GameInfo GameInfo { get; }
-    public GameElement[,] Field { get; }
-    public GameElement this[int i, int j]
-    {
-        get => Field[i, j];
-        set
-        {
-            Field[i, j] = value;
-            Field[i, j].Draw();
-        }
-    }
+    public Field Field { get; }
     private Player Player { get; }
     private Dictionary<Directions, (int, int)> Deltas { get; } = new()
     {
@@ -34,23 +26,23 @@ public class Game
     public Game(int width, int height, Player player)
     {
         GameInfo = new GameInfo();
-        Field = new GameElement[height, width];
+        Field = new Field(height, width);
         Player = player;
         AddElementToField(player);
     }
 
     public void AddElementToField(GameElement gameElement)
     {
-        this[gameElement.Y, gameElement.X] = gameElement;
+        Field[gameElement.Y, gameElement.X] = gameElement;
     }
 
     public void DrawField()
     {
-        for (var y = 0; y < Field.GetLength(0); y++)
+        for (var y = 0; y < Field.Height; y++)
         {
-            for (var x = 0; x < Field.GetLength(1); x++)
+            for (var x = 0; x < Field.Width; x++)
             {
-                this[y, x].Draw();
+                Field[y, x].Draw();
                 // Thread.Sleep(15);
             }
         }
@@ -61,13 +53,13 @@ public class Game
         var (deltaX, deltaY) = Deltas[direction];
         var newCords = new Coords(Player.X + deltaX, Player.Y + deltaY);
 
-        var isMovable = this[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
-        this[newCords.Y, newCords.X].DoFunctionality(GameInfo);
+        var isMovable = Field[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
+        Field[newCords.Y, newCords.X].DoFunctionality(GameInfo);
         if (isMovable)
         {
-            this[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
+            Field[Player.Y, Player.X] = new Empty(Player.X, Player.Y);
             (Player.X, Player.Y) = (newCords.X, newCords.Y);
-            this[newCords.Y, newCords.X] = Player;
+            Field[newCords.Y, newCords.X] = Player;
         }
     }
 }

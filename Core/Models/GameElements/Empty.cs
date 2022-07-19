@@ -1,11 +1,11 @@
-﻿namespace Core.Models;
+﻿namespace Core.Models.GameElements;
 
-public class Exit : GameElement
+public class Empty : GameElement
 {
-    public Exit(int x, int y) : base(x, y)
+    public Empty(int x, int y) : base(x, y)
     {
     }
-    public Exit(Coords coords) : base(coords)
+    public Empty(Coords coords) : base(coords)
     {
     }
 
@@ -16,6 +16,5 @@ public class Exit : GameElement
 
     public override void DoFunctionality(GameInfo gameInfo)
     {
-        gameInfo.IsGameOver = true;
     }
 }

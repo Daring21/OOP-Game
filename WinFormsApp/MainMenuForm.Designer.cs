@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
-            this.label1 = new System.Windows.Forms.Label();
             this.startGameButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -37,23 +36,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.showRulesButton = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.settingsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(12, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 60);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Labyrinth";
-            this.label1.Visible = false;
             // 
             // startGameButton
             // 
@@ -63,7 +51,7 @@
             this.startGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startGameButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.startGameButton.ForeColor = System.Drawing.Color.White;
-            this.startGameButton.Location = new System.Drawing.Point(390, 234);
+            this.startGameButton.Location = new System.Drawing.Point(390, 198);
             this.startGameButton.Name = "startGameButton";
             this.startGameButton.Size = new System.Drawing.Size(195, 51);
             this.startGameButton.TabIndex = 1;
@@ -79,7 +67,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(390, 366);
+            this.exitButton.Location = new System.Drawing.Point(391, 385);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(195, 51);
             this.exitButton.TabIndex = 3;
@@ -112,7 +100,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(215, 69);
+            this.pictureBox3.Location = new System.Drawing.Point(216, 50);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(530, 115);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -127,7 +115,7 @@
             this.showRulesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showRulesButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.showRulesButton.ForeColor = System.Drawing.Color.White;
-            this.showRulesButton.Location = new System.Drawing.Point(390, 300);
+            this.showRulesButton.Location = new System.Drawing.Point(390, 260);
             this.showRulesButton.Name = "showRulesButton";
             this.showRulesButton.Size = new System.Drawing.Size(195, 51);
             this.showRulesButton.TabIndex = 2;
@@ -145,12 +133,29 @@
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
             // 
+            // settingsButton
+            // 
+            this.settingsButton.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.settingsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.settingsButton.FlatAppearance.BorderSize = 2;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsButton.Font = new System.Drawing.Font("Organetto Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.settingsButton.ForeColor = System.Drawing.Color.White;
+            this.settingsButton.Location = new System.Drawing.Point(390, 322);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(195, 51);
+            this.settingsButton.TabIndex = 8;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(962, 543);
+            this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.showRulesButton);
             this.Controls.Add(this.pictureBox3);
@@ -158,7 +163,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.startGameButton);
-            this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -168,13 +172,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label label1;
         private Button startGameButton;
         private Button exitButton;
         private PictureBox pictureBox1;
@@ -182,5 +183,6 @@
         private PictureBox pictureBox3;
         private Button showRulesButton;
         private PictureBox pictureBox4;
+        private Button settingsButton;
     }
 }

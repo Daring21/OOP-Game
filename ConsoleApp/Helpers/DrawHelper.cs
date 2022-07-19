@@ -1,5 +1,6 @@
 ﻿using Core.Helpers;
 using Core.Models;
+using Core.Models.GameElements;
 
 namespace ConsoleApp.Helpers;
 

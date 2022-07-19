@@ -26,7 +26,6 @@ public class Labyrinth
 
     public void StartGame()
     {
-        SoundHelper.PlayBackgroundSound();
         var levels = FileHelper.GetAllLevels("Assets/Levels/levels.json");
         AllGamesList = GameHelpers.CreateGamesFromJsonLevels(levels);
         CurrentLevel = new Level(AllGamesList[LevelIndex++], Form);

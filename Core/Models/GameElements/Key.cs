@@ -1,4 +1,6 @@
-﻿namespace Core.Models;
+﻿using Core.Helpers;
+
+namespace Core.Models.GameElements;
 
 public class Key : GameElement
 {
@@ -21,5 +23,6 @@ public class Key : GameElement
     public override void DoFunctionality(GameInfo gameInfo)
     {
         gameInfo.PlayerKeys.Add(Letter);
+        SoundHelper.PlayAchieveSound();
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Core.Models;
+using Core.Models.GameElements;
+using Core.Models.Json;
 
 namespace Core.Helpers;
 
@@ -72,19 +74,19 @@ public static class GameExtension
 {
     public static void AddBorderToGame(this Game game)
     {
-        var height = game.Field.GetLength(0);
-        var width = game.Field.GetLength(1);
+        var height = game.Field.Height;
+        var width = game.Field.Width;
         for (var y = 0; y < height; y++)
         {
             for (var x = 0; x < width; x++)
             {
                 if (y == 0 || y == height- 1)
                 {
-                    game[y, x] = new Wall(x, y);
+                    game.Field[y, x] = new Wall(x, y);
                 }
                 else if ((x == 0 || x == width  - 1))
                 {
-                    game[y, x] = new Wall(x, y);
+                    game.Field[y, x] = new Wall(x, y);
                 }
             }
         }

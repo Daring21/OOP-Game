@@ -1,5 +1,6 @@
 ﻿using Core;
 using Core.Models;
+using Core.Models.GameElements;
 using WinFormsApp.Helpers;
 
 namespace WinFormsApp.GameEngine;
@@ -7,7 +8,7 @@ namespace WinFormsApp.GameEngine;
 public class Level
 {
     public Game Game { get; }
-    public GameForm Form { get; set; }
+    private GameForm Form { get; set; }
 
     public Level(Game game, GameForm form)
     {
@@ -16,7 +17,7 @@ public class Level
         StartLevel();
     }
 
-    public void StartLevel()
+    private void StartLevel()
     {
         AdjustPanelGameField();
         var drawHelper = new DrawHelper(Form);
@@ -28,7 +29,7 @@ public class Level
     {
         Form.labelCollectedKeys.Text = DefaultText.LabelCollectedKeys;
         Form.panelGameField.Controls.Clear();
-        Form.panelGameField.Size = new Size(Game.Field.GetLength(1) * 30, Game.Field.GetLength(0) * 30);
+        Form.panelGameField.Size = new Size(Game.Field.Width * 30, Game.Field.Height * 30);
         Form.panelGameField.Left = (Form.panelGameField.Parent.Width - Form.panelGameField.Width) / 2;
         Form.panelGameField.Top = (Form.panelGameField.Parent.Height - Form.panelGameField.Height) / 2;
     }

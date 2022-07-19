@@ -1,3 +1,5 @@
+using Core.Helpers;
+
 namespace WinFormsApp
 {
     internal static class Program
@@ -9,6 +11,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            SoundHelper.PlayBackgroundSound();
             Application.Run(new MainMenuForm());
         }
     }

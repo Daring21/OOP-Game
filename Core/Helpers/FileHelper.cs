@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Core.Models;
+using Core.Models.Json;
 using Newtonsoft.Json;
 
 namespace Core.Helpers;
@@ -8,13 +9,13 @@ public static class FileHelper
 {
     public static string ReadTxtFile(string path)
     {
-        if (File.Exists(path))
+        if (!File.Exists(path))
         {
-            var text = File.ReadAllText(path, Encoding.UTF8);
-            return text;
+            return "";
         }
-
-        return "";
+        
+        var text = File.ReadAllText(path, Encoding.UTF8);
+        return text;
     }
 
     public static JsonLevels GetAllLevels(string path)

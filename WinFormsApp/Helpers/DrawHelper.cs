@@ -1,4 +1,6 @@
-﻿using Core.Models;
+﻿using Core;
+using Core.Models;
+using Core.Models.GameElements;
 
 namespace WinFormsApp.Helpers;
 
@@ -31,14 +33,21 @@ public class DrawHelper
         };
         
         var path = elementPathDictionary[element.GetType()];
+        var pictureBox = CreatePictureBoxForElement(element, path);
+        Form.panelGameField.Controls.Add(pictureBox);
+        pictureBox.BringToFront();
+    }
+
+    private PictureBox CreatePictureBoxForElement(GameElement element, string pathToImage)
+    {
         var pictureBox = new PictureBox();
-        var image = Image.FromFile(path);
         pictureBox.Width = GameElementWidth;
         pictureBox.Height = GameElementHeight;
         pictureBox.Margin = Padding.Empty;
         pictureBox.Location = new Point(element.X * GameElementWidth, element.Y * GameElementHeight);
         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
+        
+        var image = Image.FromFile(pathToImage);
         if (element is Door door)
         {
             using Graphics g = Graphics.FromImage(image);
@@ -51,7 +60,6 @@ public class DrawHelper
         }
         
         pictureBox.Image = image;
-        Form.panelGameField.Controls.Add(pictureBox);
-        pictureBox.BringToFront();
+        return pictureBox;
     }
 }

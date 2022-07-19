@@ -2,6 +2,7 @@
 using Core.Helpers;
 using Core.Models;
 using ConsoleApp.Helpers;
+using Core.Models.GameElements;
 
 namespace ConsoleApp;
 
