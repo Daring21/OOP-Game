@@ -25,7 +25,7 @@ public class Labyrinth
             Console.Clear();
             DrawHelper.DrawGreetingMessage();
         }
-        SoundHelper.PlayBackgroundSound();
+        SoundHelper.PlayMusic(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/background.wav"));
 
         var levels = FileHelper.GetAllLevels("Assets/Levels/levels.json");
         var games = GameHelpers.CreateGamesFromJsonLevels(levels);
@@ -47,7 +47,7 @@ public class Labyrinth
         }
             
         Console.Clear();
-        SoundHelper.PlayAchieveSound();
+        SoundHelper.PlaySounds(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/achieve.wav"));
         DrawHelper.DrawMessageFromFile(@"Assets/Messages/won.txt", ConsoleColor.Green);
         Console.ReadLine();
     }

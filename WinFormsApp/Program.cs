@@ -11,7 +11,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            SoundHelper.PlayBackgroundSound();
+            SoundHelper.PlayMusic(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/background.wav"));
             Application.Run(new MainMenuForm());
         }
     }

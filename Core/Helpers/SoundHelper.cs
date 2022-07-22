@@ -1,7 +1,4 @@
-﻿using System.Media;
-using System.Windows.Media;
-// using MediaPlayer;
-using WMPLib;
+﻿using WMPLib;
 
 namespace Core.Helpers;
 
@@ -30,16 +27,14 @@ public static class SoundHelper
         }
     }
 
-    public static void PlayBackgroundSound()
+    public static void PlayMusic(string path)
     {
-        var path = Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/background.wav");
         MusicPlayer.URL = path;
         MusicPlayer.controls.play();
     }
 
-    public static void PlayAchieveSound()
+    public static void PlaySounds(string path)
     {
-        var path = Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/achieve.wav");
         SoundsPlayer.URL = path;
         SoundsPlayer.controls.play();
     }

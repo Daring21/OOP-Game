@@ -23,6 +23,6 @@ public class Key : GameElement
     public override void DoFunctionality(GameInfo gameInfo)
     {
         gameInfo.PlayerKeys.Add(Letter);
-        SoundHelper.PlayAchieveSound();
+        SoundHelper.PlaySounds(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/achieve.wav"));
     }
 }
