@@ -1,6 +1,4 @@
-﻿using Core;
-using Core.Models;
-using Core.Models.GameElements;
+﻿using Core.Models.GameElements;
 
 namespace WinFormsApp.Helpers;
 
@@ -9,6 +7,16 @@ public class DrawHelper
     private GameForm Form { get; set; }
     private const int GameElementWidth = 30;
     private const int GameElementHeight = 30;
+    
+    private readonly Dictionary<Type, string> elementPathDictionary = new()
+    {
+        {typeof(Door), "Assets/Images/door.png"},
+        {typeof(Empty), "Assets/Images/empty.png"},
+        {typeof(Exit), "Assets/Images/exit.gif"},
+        {typeof(Key), "Assets/Images/key.png"},
+        {typeof(Player), "Assets/Images/player.png"},
+        {typeof(Wall), "Assets/Images/wall.png"},
+    };
 
     public DrawHelper(GameForm form)
     {
@@ -21,16 +29,6 @@ public class DrawHelper
         {
             return;
         }
-
-        Dictionary<Type, string> elementPathDictionary = new()
-        {
-            {typeof(Door), "Assets/Images/door.png"},
-            {typeof(Empty), "Assets/Images/empty.png"},
-            {typeof(Exit), "Assets/Images/exit.gif"},
-            {typeof(Key), "Assets/Images/key.png"},
-            {typeof(Player), "Assets/Images/player.png"},
-            {typeof(Wall), "Assets/Images/wall.png"},
-        };
         
         var path = elementPathDictionary[element.GetType()];
         var pictureBox = CreatePictureBoxForElement(element, path);

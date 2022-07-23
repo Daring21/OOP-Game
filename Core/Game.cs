@@ -53,8 +53,9 @@ public class Game
         var (deltaX, deltaY) = Deltas[direction];
         var newCords = new Coords(Player.X + deltaX, Player.Y + deltaY);
 
-        var isMovable = Field[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
         Field[newCords.Y, newCords.X].DoFunctionality(GameInfo);
+        
+        var isMovable = Field[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
         if (isMovable)
         {
             Field[Player.Y, Player.X] = new Empty(Player.X, Player.Y);

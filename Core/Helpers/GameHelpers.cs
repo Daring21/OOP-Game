@@ -15,15 +15,7 @@ public static class GameHelpers
 
     public static List<Game> CreateGamesFromJsonLevels(JsonLevels levels)
     {
-        var games = new List<Game>();
-
-        foreach (var level in levels.Levels)
-        {
-            var currentGame = FillGameWithLevel(level);
-            games.Add(currentGame);
-        }
-        
-        return games;
+        return levels.Levels.Select(level => FillGameWithLevel(level)).ToList();
     }
 
     private static Game FillGameWithLevel(JsonLevel level)
@@ -45,27 +37,24 @@ public static class GameHelpers
 
     private static GameElement CreateElementBySymbol(string str, Coords coords)
     {
-        if (str.Length == 1)
-        {
-            var symbol = str[0];
-            if (char.IsLetter(symbol))
-            {
-                if (char.IsUpper(symbol))
-                {
-                    return new Door(coords, char.ToLower(symbol));
-                }
-                else
-                {
-                    return new Key(coords, char.ToLower(symbol));
-                }
-            }
-        }
-
         if (symbolElements.ContainsKey(str))
         {
             return (Activator.CreateInstance(symbolElements[str], coords) as GameElement)!;
         }
-
+        
+        var symbol = str[0];
+        if (char.IsLetter(symbol))
+        {
+            if (char.IsUpper(symbol))
+            {
+                return new Door(coords, char.ToLower(symbol));
+            }
+            else
+            {
+                return new Key(coords, char.ToLower(symbol));
+            }
+        }
+        
         return new Empty(coords);
     }
 }
@@ -80,11 +69,11 @@ public static class GameExtension
         {
             for (var x = 0; x < width; x++)
             {
-                if (y == 0 || y == height- 1)
+                if (y == 0 || y == height - 1)
                 {
                     game.Field[y, x] = new Wall(x, y);
                 }
-                else if ((x == 0 || x == width  - 1))
+                else if (x == 0 || x == width - 1)
                 {
                     game.Field[y, x] = new Wall(x, y);
                 }

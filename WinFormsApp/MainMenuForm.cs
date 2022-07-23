@@ -30,7 +30,6 @@ namespace WinFormsApp
             if (result == DialogResult.OK)
             {
                 this.Close();
-                Application.Exit();
             }
         }
     }

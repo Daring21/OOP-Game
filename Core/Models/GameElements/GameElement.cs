@@ -11,10 +11,8 @@ public abstract class GameElement
         X = x;
         Y = y;
     }
-    protected GameElement(Coords coords)
+    protected GameElement(Coords coords) : this(coords.X, coords.Y)
     {
-        X = coords.X;
-        Y = coords.Y;
     }
 
     public void Draw()

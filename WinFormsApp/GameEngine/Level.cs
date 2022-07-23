@@ -19,18 +19,19 @@ public class Level
 
     private void StartLevel()
     {
-        AdjustPanelGameField();
+        ResetControls();
         var drawHelper = new DrawHelper(Form);
         GameElement.DrawEvent += drawHelper.DrawElement;
         Game.DrawField();
     }
 
-    private void AdjustPanelGameField()
+    private void ResetControls()
     {
+        var panelField = Form.panelGameField;
         Form.labelCollectedKeys.Text = DefaultText.LabelCollectedKeys;
-        Form.panelGameField.Controls.Clear();
-        Form.panelGameField.Size = new Size(Game.Field.Width * 30, Game.Field.Height * 30);
-        Form.panelGameField.Left = (Form.panelGameField.Parent.Width - Form.panelGameField.Width) / 2;
-        Form.panelGameField.Top = (Form.panelGameField.Parent.Height - Form.panelGameField.Height) / 2;
+        panelField.Controls.Clear();
+        panelField.Size = new Size(Game.Field.Width * 30, Game.Field.Height * 30);
+        panelField.Left = (panelField.Parent.Width - panelField.Width) / 2;
+        panelField.Top = (panelField.Parent.Height - panelField.Height) / 2;
     }
 }

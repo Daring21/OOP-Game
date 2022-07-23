@@ -40,10 +40,8 @@ namespace WinFormsApp
                 Dispose(true);
                 Application.Exit();
             }
-            else
-            {
-                e.Cancel = true;
-            }
+            
+            e.Cancel = true;
         }
     }
 }
