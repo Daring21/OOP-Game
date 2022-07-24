@@ -3,11 +3,12 @@
 public class Door : GameElement
 {
     public char Letter { get; set; }
-    
+
     public Door(int x, int y, char letter) : base(x, y)
     {
         Letter = char.ToLower(letter);
     }
+
     public Door(Coords coords, char letter) : base(coords)
     {
         Letter = char.ToLower(letter);
@@ -20,5 +21,6 @@ public class Door : GameElement
 
     public override void DoFunctionality(GameInfo gameInfo)
     {
+        gameInfo.RemainingDoors = gameInfo.RemainingDoors.Where(doorLetter => Letter != doorLetter).ToList();
     }
 }

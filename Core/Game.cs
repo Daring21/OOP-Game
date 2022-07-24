@@ -12,9 +12,11 @@ public class Game
         Bottom,
         Right
     }
+
     public GameInfo GameInfo { get; }
     public Field Field { get; }
     private Player Player { get; }
+
     private Dictionary<Directions, (int, int)> Deltas { get; } = new()
     {
         {Directions.Top, (0, -1)},
@@ -34,6 +36,10 @@ public class Game
     public void AddElementToField(GameElement gameElement)
     {
         Field[gameElement.Y, gameElement.X] = gameElement;
+        if (gameElement is Door door)
+        {
+            GameInfo.RemainingDoors.Add(door.Letter);
+        }
     }
 
     public void DrawField()
@@ -53,8 +59,9 @@ public class Game
         var (deltaX, deltaY) = Deltas[direction];
         var newCords = new Coords(Player.X + deltaX, Player.Y + deltaY);
 
-        var isMovable = Field[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
         Field[newCords.Y, newCords.X].DoFunctionality(GameInfo);
+
+        var isMovable = Field[newCords.Y, newCords.X].IfCellIsMovable(GameInfo);
         if (isMovable)
         {
             Field[Player.Y, Player.X] = new Empty(Player.X, Player.Y);

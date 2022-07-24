@@ -1,5 +1,4 @@
 ﻿using Core.Helpers;
-using Core.Models;
 using Core.Models.GameElements;
 
 namespace ConsoleApp.Helpers;
@@ -22,13 +21,13 @@ public static class DrawHelper
             {typeof(Player), ("¤", ConsoleColor.Blue)},
             {typeof(Wall), ("█", ConsoleColor.White)},
         };
-        
+
         var (symbol, color) = elementSymbolDictionary[element.GetType()];
-        
+
         var previousColor = Console.ForegroundColor;
         Console.ForegroundColor = color;
         Console.SetCursorPosition(element.X, element.Y);
-        
+
         if (element is Door)
         {
             Console.Write(symbol.ToUpper());
@@ -37,7 +36,7 @@ public static class DrawHelper
         {
             Console.Write(symbol);
         }
-        
+
         Console.ForegroundColor = previousColor;
     }
 
@@ -48,7 +47,7 @@ public static class DrawHelper
         Console.WriteLine(FileHelper.ReadTxtFile(Path.Combine(Directory.GetCurrentDirectory(), path)));
         Console.ForegroundColor = previousColor;
     }
-    
+
     public static void DrawGreetingMessage()
     {
         DrawMessageFromFile(@"Assets/Messages/greeting.txt", ConsoleColor.Blue);

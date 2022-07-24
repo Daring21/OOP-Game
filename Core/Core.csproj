@@ -7,72 +7,72 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <COMReference Include="WMPLib">
-        <VersionMinor>0</VersionMinor>
-        <VersionMajor>1</VersionMajor>
-        <Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
-        <Lcid>0</Lcid>
-        <WrapperTool>tlbimp</WrapperTool>
-        <Isolated>false</Isolated>
-        <EmbedInteropTypes>true</EmbedInteropTypes>
-      </COMReference>
+        <COMReference Include="WMPLib">
+            <VersionMinor>0</VersionMinor>
+            <VersionMajor>1</VersionMajor>
+            <Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
+            <Lcid>0</Lcid>
+            <WrapperTool>tlbimp</WrapperTool>
+            <Isolated>false</Isolated>
+            <EmbedInteropTypes>true</EmbedInteropTypes>
+        </COMReference>
     </ItemGroup>
 
 
     <ItemGroup>
-      <None Update="Assets\Levels\levels.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Messages\greeting.txt">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Messages\won.txt">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Sounds\achieve.wav">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Sounds\background.wav">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Messages\symbols.txt">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Images\player.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Images\wall.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Images\empty.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Images\exit.gif">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Images\door.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Images\key.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Assets\Images\easter.gif">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+        <None Update="Assets\Levels\levels.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Messages\greeting.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Messages\won.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Sounds\achieve.wav">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Sounds\background.wav">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Messages\symbols.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Images\player.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Images\wall.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Images\empty.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Images\exit.gif">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Images\door.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Images\key.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Assets\Images\easter.gif">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta1" />
-      <PackageReference Include="System.Windows.Extensions" Version="7.0.0-preview.4.22229.4" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.2-beta1"/>
+        <PackageReference Include="System.Windows.Extensions" Version="7.0.0-preview.4.22229.4"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="PresentationCore">
-        <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\PresentationCore.dll</HintPath>
-      </Reference>
-      <Reference Include="PresentationFramework">
-        <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\PresentationFramework.dll</HintPath>
-      </Reference>
+        <Reference Include="PresentationCore">
+            <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\PresentationCore.dll</HintPath>
+        </Reference>
+        <Reference Include="PresentationFramework">
+            <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\PresentationFramework.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
 </Project>

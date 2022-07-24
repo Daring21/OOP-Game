@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using Core.Models;
 using Core.Models.Json;
 using Newtonsoft.Json;
 
@@ -13,7 +12,7 @@ public static class FileHelper
         {
             return "";
         }
-        
+
         var text = File.ReadAllText(path, Encoding.UTF8);
         return text;
     }

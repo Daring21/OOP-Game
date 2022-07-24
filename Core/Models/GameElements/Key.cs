@@ -10,6 +10,7 @@ public class Key : GameElement
     {
         Letter = char.ToLower(letter);
     }
+
     public Key(Coords coords, char letter) : base(coords)
     {
         Letter = char.ToLower(letter);

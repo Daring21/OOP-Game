@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Core;
-using Core.Helpers;
-using Core.Models;
+﻿using Core.Helpers;
 using WinFormsApp.GameEngine;
 
 namespace WinFormsApp
@@ -31,6 +20,11 @@ namespace WinFormsApp
             Labyrinth.KeyPressed(e.KeyCode);
         }
 
+        private void pictureBoxPlayPause_Click(object sender, EventArgs e)
+        {
+            SoundHelper.PausePlayMusic();
+        }
+
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to leave?", "Confirmation",
@@ -40,10 +34,8 @@ namespace WinFormsApp
                 Dispose(true);
                 Application.Exit();
             }
-            else
-            {
-                e.Cancel = true;
-            }
+
+            e.Cancel = true;
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Core;
 
 public class Field
 {
-    private GameElement[,] field { get; }
+    public GameElement[,] field { get; }
     public int Height { get; }
     public int Width { get; }
 
