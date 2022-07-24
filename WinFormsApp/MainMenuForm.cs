@@ -29,7 +29,17 @@ namespace WinFormsApp
             var result = MessageBox.Show("Are you sure you want to leave?", "Confirmation", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                this.Close();
+                Application.Exit();
+            }
+        }
+
+        private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to leave?", "Confirmation",
+                MessageBoxButtons.OKCancel);
+            if (result != DialogResult.OK)
+            {
+                e.Cancel = true;
             }
         }
     }

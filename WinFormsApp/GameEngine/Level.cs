@@ -1,5 +1,4 @@
 ﻿using Core;
-using Core.Models;
 using Core.Models.GameElements;
 using WinFormsApp.Helpers;
 
@@ -29,6 +28,7 @@ public class Level
     {
         var panelField = Form.panelGameField;
         Form.labelCollectedKeys.Text = DefaultText.LabelCollectedKeys;
+        Form.labelRemainingDoors.Text = DefaultText.LabelRemainingDoors;
         panelField.Controls.Clear();
         panelField.Size = new Size(Game.Field.Width * 30, Game.Field.Height * 30);
         panelField.Left = (panelField.Parent.Width - panelField.Width) / 2;

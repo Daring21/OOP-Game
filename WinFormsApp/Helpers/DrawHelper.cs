@@ -7,7 +7,7 @@ public class DrawHelper
     private GameForm Form { get; set; }
     private const int GameElementWidth = 30;
     private const int GameElementHeight = 30;
-    
+
     private readonly Dictionary<Type, string> elementPathDictionary = new()
     {
         {typeof(Door), "Assets/Images/door.png"},
@@ -22,14 +22,14 @@ public class DrawHelper
     {
         Form = form;
     }
-    
+
     public void DrawElement(object? sender, EventArgs e)
     {
         if (sender is not GameElement element)
         {
             return;
         }
-        
+
         var path = elementPathDictionary[element.GetType()];
         var pictureBox = CreatePictureBoxForElement(element, path);
         Form.panelGameField.Controls.Add(pictureBox);
@@ -44,7 +44,7 @@ public class DrawHelper
         pictureBox.Margin = Padding.Empty;
         pictureBox.Location = new Point(element.X * GameElementWidth, element.Y * GameElementHeight);
         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-        
+
         var image = Image.FromFile(pathToImage);
         if (element is Door door)
         {
@@ -56,7 +56,7 @@ public class DrawHelper
             using Graphics g = Graphics.FromImage(image);
             g.DrawString(key?.Letter.ToString(), new Font("Organetto", 150), Brushes.Yellow, 30, 90);
         }
-        
+
         pictureBox.Image = image;
         return pictureBox;
     }

@@ -6,11 +6,13 @@ public static class SoundHelper
 {
     private static readonly WindowsMediaPlayer MusicPlayer = new();
     private static readonly WindowsMediaPlayer SoundsPlayer = new();
+
     public static int MusicVolume
     {
         get => MusicPlayer.settings.volume;
         set => MusicPlayer.settings.volume = value;
     }
+
     public static int SoundsVolume
     {
         get => SoundsPlayer.settings.volume;
@@ -20,7 +22,20 @@ public static class SoundHelper
     public static void PlayMusic(string path)
     {
         MusicPlayer.URL = path;
+        MusicPlayer.settings.setMode("loop", true);
         MusicPlayer.controls.play();
+    }
+
+    public static void PausePlayMusic()
+    {
+        if (MusicPlayer.playState == WMPPlayState.wmppsPlaying)
+        {
+            MusicPlayer.controls.pause();
+        }
+        else
+        {
+            MusicPlayer.controls.play();
+        }
     }
 
     public static void PlaySounds(string path)

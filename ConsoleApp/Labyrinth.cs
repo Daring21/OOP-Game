@@ -1,6 +1,5 @@
 ﻿using Core;
 using Core.Helpers;
-using Core.Models;
 using ConsoleApp.Helpers;
 using Core.Models.GameElements;
 
@@ -8,7 +7,7 @@ namespace ConsoleApp;
 
 public class Labyrinth
 {
-    private readonly Dictionary<ConsoleKey, Game.Directions> KeyDirectionsMap = new ()
+    private readonly Dictionary<ConsoleKey, Game.Directions> KeyDirectionsMap = new()
     {
         {ConsoleKey.UpArrow, Game.Directions.Top},
         {ConsoleKey.DownArrow, Game.Directions.Bottom},
@@ -25,6 +24,7 @@ public class Labyrinth
             Console.Clear();
             DrawHelper.DrawGreetingMessage();
         }
+
         SoundHelper.PlayMusic(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/background.wav"));
 
         var levels = FileHelper.GetAllLevels("Assets/Levels/levels.json");
@@ -45,7 +45,7 @@ public class Labyrinth
                 }
             } while (!game.GameInfo.IsGameOver);
         }
-            
+
         Console.Clear();
         SoundHelper.PlaySounds(Path.Combine(Directory.GetCurrentDirectory(), @"Assets/Sounds/achieve.wav"));
         DrawHelper.DrawMessageFromFile(@"Assets/Messages/won.txt", ConsoleColor.Green);

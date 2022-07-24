@@ -41,7 +41,7 @@ public static class GameHelpers
         {
             return (Activator.CreateInstance(symbolElements[str], coords) as GameElement)!;
         }
-        
+
         var symbol = str[0];
         if (char.IsLetter(symbol))
         {
@@ -54,7 +54,7 @@ public static class GameHelpers
                 return new Key(coords, char.ToLower(symbol));
             }
         }
-        
+
         return new Empty(coords);
     }
 }

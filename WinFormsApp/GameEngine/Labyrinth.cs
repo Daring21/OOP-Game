@@ -29,6 +29,8 @@ public class Labyrinth
         var levels = FileHelper.GetAllLevels("Assets/Levels/levels.json");
         AllGamesList = GameHelpers.CreateGamesFromJsonLevels(levels);
         CurrentLevel = new Level(AllGamesList[LevelIndex], Form);
+        Form.labelRemainingDoors.Text =
+            DefaultText.LabelRemainingDoors + string.Join(", ", CurrentLevel.Game.GameInfo.RemainingDoors);
     }
 
     public void KeyPressed(Keys keys)
@@ -47,7 +49,7 @@ public class Labyrinth
         {
             if (LevelIndex == AllGamesList.Count - 1)
             {
-                FormHelper.OpenForm(Form, new WonForm(LevelIndex));
+                FormHelper.OpenForm(Form, new WonForm(LevelIndex + 1));
                 return;
             }
 
@@ -55,6 +57,9 @@ public class Labyrinth
             CurrentLevel = new Level(AllGamesList[LevelIndex], Form);
         }
 
-        Form.labelCollectedKeys.Text = DefaultText.LabelCollectedKeys + string.Join(", ", CurrentLevel.Game.GameInfo.PlayerKeys);
+        Form.labelCollectedKeys.Text =
+            DefaultText.LabelCollectedKeys + string.Join(", ", CurrentLevel.Game.GameInfo.PlayerKeys);
+        Form.labelRemainingDoors.Text =
+            DefaultText.LabelRemainingDoors + string.Join(", ", CurrentLevel.Game.GameInfo.RemainingDoors);
     }
 }
